@@ -26,7 +26,8 @@ export class LoginComponent {
       return;
     }
     this.authService.login(this.loginForm.value).pipe(
-      tap(() => this.router.navigate(['../../private/dashboard']))
+      tap(() => console.log('ASD')),
+      tap(() => this.router.navigate(['../../protected/dashboard']))
     ).subscribe();
   }
 
