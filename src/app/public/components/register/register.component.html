@@ -36,7 +36,6 @@
           Last Name is required</mat-error>
       </mat-form-field>
 
-
       <mat-form-field>
         <input type="password" matInput placeholder="Password" formControlName="password">
         <mat-error
@@ -50,6 +49,10 @@
           *ngIf="this.registerForm.get('passwordConfirm')?.touched && this.registerForm.get('passwordConfirm')?.hasError('required')">
           Password Confirmation is required</mat-error>
       </mat-form-field>
+
+      <mat-error
+        *ngIf="this.registerForm.get('passwordConfirm')?.dirty && this.registerForm.hasError('passwordsNotMatching')">
+        Passwords are not matching!</mat-error>
 
       <div class="button">
         <!-- Button is disabled(not clickable), if our RegisterForm contains Validation Errors -->
