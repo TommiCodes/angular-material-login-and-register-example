@@ -4,38 +4,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable, of, switchMap, tap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-export interface RefreshToken {
-  id: number;
-  userId: number;
-  token: string;
-  refreshCount: number;
-  expiryDate: Date;
-}
-
-export interface LoginResponse {
-  accessToken: string;
-  refreshToken: RefreshToken;
-  tokenType: string;
-}
-
-export interface LoginRequest {
-  email: string;
-  password: string;
-}
-
-export interface RegisterRequest {
-  email: string;
-  username: string;
-  firstname: string;
-  lastname: string;
-  password: string;
-}
-
-export interface RegisterResponse {
-  status: number;
-  message: string;
-}
+import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from '../../interfaces';
 
 export const fakeLoginResponse: LoginResponse = {
   // fakeAccessToken.....should all come from real backend

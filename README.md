@@ -50,3 +50,16 @@ Add an angular jwt package, for handling the jwt, the login etc.
 Add the Auth guard, to make sure only LoggedIn Users can access the Protected Module  
 `ng g g Auth`  
 then implement the CanActivate interface
+
+### Sample Screenshots
+Login View:
+![Login View](/screenshots/login-basic.jpg?raw=true "Login View")
+
+Login View with errors displayed:
+![Login View with errors](/screenshots/login-errors.jpg?raw=true "Login View with an errors displayed")
+
+Jwt Protected Dashboard after successfull login (only for Guard and Example purposes):
+![Dashboard for example purposes](/screenshots/jwt-protected-basic-dashboard.jpg?raw=true "Dashboard for example purposes")
+
+Register Form with passwords not matching error displayed:
+![Register Form with Passwords not matching error displayed](/screenshots/register-forms-with-passwords-not-matching-hint.jpg?raw=true "Register Form with Passwords not matching error displayed")
