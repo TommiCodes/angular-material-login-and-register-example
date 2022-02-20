@@ -23,12 +23,13 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    // Import our Routes for this module
+    AppRoutingModule,
+    // Angular Material Imports
     MatSnackBarModule,
-
+    // Jwt Helper Module Import
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
