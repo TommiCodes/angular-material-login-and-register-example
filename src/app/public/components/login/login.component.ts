@@ -26,7 +26,7 @@ export class LoginComponent {
       return;
     }
     this.authService.login(this.loginForm.value).pipe(
-      tap(() => console.log('ASD')),
+      // route to protected/dashboard, if login was successfull
       tap(() => this.router.navigate(['../../protected/dashboard']))
     ).subscribe();
   }

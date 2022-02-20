@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of, switchMap, tap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface RefreshToken {
   id: number;
@@ -24,7 +25,11 @@ export interface LoginRequest {
 }
 
 export interface RegisterRequest {
-
+  email: string;
+  username: string;
+  firstname: string;
+  lastname: string;
+  password: string;
 }
 
 export interface RegisterResponse {
@@ -47,7 +52,7 @@ export const fakeLoginResponse: LoginResponse = {
 
 export const fakeRegisterResponse: RegisterResponse = {
   status: 200,
-  message: 'Register sucessfull.'
+  message: 'Registration sucessfull.'
 }
 
 
@@ -58,6 +63,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
+    private snackbar: MatSnackBar,
     private jwtService: JwtHelperService
   ) { }
 
@@ -70,10 +76,16 @@ export class AuthService {
   */
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
     return of(fakeLoginResponse).pipe(
-      tap((res: LoginResponse) => localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken))
+      tap((res: LoginResponse) => localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken)),
+      tap(() => this.snackbar.open('Login Successfull', 'Close', {
+        duration: 2000, horizontalPosition: 'right', verticalPosition: 'top'
+      }))
     );
     // return this.http.post<LoginResponse>('/api/auth/login', loginRequest).pipe(
-    // tap((res: LoginResponse) => localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken))
+    // tap((res: LoginResponse) => localStorage.setItem(LOCALSTORAGE_TOKEN_KEY, res.accessToken)),
+    // tap(() => this.snackbar.open('Login Successfull', 'Close', {
+    //  duration: 2000, horizontalPosition: 'right', verticalPosition: 'top'
+    // }))
     // );
   }
 
@@ -82,8 +94,16 @@ export class AuthService {
   */
   register(registerRequest: RegisterRequest): Observable<RegisterResponse> {
     // TODO
-    return of(fakeRegisterResponse);
-    // return this.http.post<RegisterResponse>('/api/auth/register', registerRequest);
+    return of(fakeRegisterResponse).pipe(
+      tap((res: RegisterResponse) => this.snackbar.open(`User created successfully`, 'Close', {
+        duration: 2000, horizontalPosition: 'right', verticalPosition: 'top'
+      })),
+    );
+    // return this.http.post<RegisterResponse>('/api/auth/register', registerRequest).pipe(
+    // tap((res: RegisterResponse) => this.snackbar.open(`User created successfully`, 'Close', {
+    //  duration: 2000, horizontalPosition: 'right', verticalPosition: 'top'
+    // }))
+    // )
   }
 
   /*

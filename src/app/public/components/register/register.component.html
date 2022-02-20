@@ -1,7 +1,9 @@
 <mat-card>
   <mat-card-title>Register</mat-card-title>
+
   <mat-card-content>
     <form [formGroup]="registerForm" (ngSubmit)="register()">
+
       <mat-form-field>
         <input type="email" matInput placeholder="Email" formControlName="email">
         <!-- Here we can display error messages/hints for the user, if one of the Validators adds an error to the email 
@@ -14,10 +16,39 @@
       </mat-form-field>
 
       <mat-form-field>
+        <input type="text" matInput placeholder="Username" formControlName="username">
+        <mat-error
+          *ngIf="this.registerForm.get('username')?.touched && this.registerForm.get('username')?.hasError('required')">
+          Username is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="First Name" formControlName="firstname">
+        <mat-error
+          *ngIf="this.registerForm.get('firstname')?.touched && this.registerForm.get('firstname')?.hasError('required')">
+          First Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="Last Name" formControlName="lastname">
+        <mat-error
+          *ngIf="this.registerForm.get('lastname')?.touched && this.registerForm.get('lastname')?.hasError('required')">
+          Last Name is required</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
         <input type="password" matInput placeholder="Password" formControlName="password">
         <mat-error
           *ngIf="this.registerForm.get('password')?.touched && this.registerForm.get('password')?.hasError('required')">
           Password is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password Confirmation" formControlName="passwordConfirm">
+        <mat-error
+          *ngIf="this.registerForm.get('passwordConfirm')?.touched && this.registerForm.get('passwordConfirm')?.hasError('required')">
+          Password Confirmation is required</mat-error>
       </mat-form-field>
 
       <div class="button">
@@ -27,4 +58,5 @@
 
     </form>
   </mat-card-content>
+
 </mat-card>
