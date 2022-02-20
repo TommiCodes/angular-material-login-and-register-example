@@ -41,10 +41,10 @@ Generate the components
 
 Generate the "fake" Service  
 `ng g s public/auth`
-
-Add an angular jwt package, for handling the jwt, the login etc.
-`npm i @auth0/angular-jwt`
-
-Add the Auth guard, to make sure only LoggedIn Users can access the Protected Module
+  
+Add an angular jwt package, for handling the jwt, the login etc.  
+`npm i @auth0/angular-jwt`  
+  
+Add the Auth guard, to make sure only LoggedIn Users can access the Protected Module  
 `ng g g Auth`  
 then implement the CanActivate interface
