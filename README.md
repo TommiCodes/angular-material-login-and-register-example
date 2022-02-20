@@ -16,10 +16,14 @@ The @auth0/angular-jwt is added and with the login request the jwt is stored in 
 The package adds then the jwt to every request to the backend automatically via an interceptoer, so the fe/the user is 
 always authenticated against the backend.
 
+Angular Guard:  
+Protects the '/protected' route and checks if there is a jwt provided in the localstorage that is not expired.
+If it's ok, then the user can access the route, otherwise the access is denied and the user gets redirected to Login
+
 ### Next Steps for you
 Add a real backend and replace the placeholders
 
-### Next steps for me
+### Next steps for this project
 - add a form to reset the password
 
 ### Commands/Cli Commands that were used to generate this project 
