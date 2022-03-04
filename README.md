@@ -1,6 +1,8 @@
 # angular-material-login-and-register-example
 
-Link to Youtube-Video: tbd  
+Link to Youtube-Video: https://youtu.be/S2xwcY3QKBc  
+
+Please read the docs carefully - all requests to the backend are "mocked" but there are "commented" examples that you can use (and modify) to fit your specific needs.
 
 ## How to run
 First run `npm i` and then `ng serve`, then you can open localhost:4200 in your Browser
@@ -38,7 +40,7 @@ add angular Material to your Angular app
   
 Generate the modules Public, Private and Shared  
 `ng g module public`  
-`ng g module private`  
+`ng g module protected`  
 
 Generate the components  
 `ng g c public/login`  
